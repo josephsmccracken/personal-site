@@ -1,5 +1,9 @@
 ---
+import '../styles/global.css';
+
 const pageTitle = "About Me";
+const skills = ["Coding", "Design", "Strategy"];
+const skillColor = "green";
 ---
 
 <html lang="en">
@@ -10,6 +14,16 @@ const pageTitle = "About Me";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<style>
+			h1 {
+			  color: purple;
+			  font-size: 4rem;
+			}
+			.skill {
+				color: var(--skillColor);
+				font-weight: bold;
+			}
+		  </style>
 	</head>
 	<body>
 		<a href="/">Home</a>
@@ -19,8 +33,11 @@ const pageTitle = "About Me";
 		<h1>About Me</h1>
 		<h2>... and my new Astro site!</h2>
 		
-		<p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-		
-		<p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+		<p>My skills are:</p>
+		<ul>
+		{
+			skills.map(skill => <li class="skill">{skill}</li>)
+		}
+		</ul>
 	</body>
 </html>
